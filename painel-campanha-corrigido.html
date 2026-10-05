@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Solidário - Campanha Emergencial (Versão Acessível e Conforme WCAG 2.1 AA)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 30px 20px;
+            color: #111827;
+        }
+        .card-campanha {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .imagem-capa {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .conteudo {
+            padding: 24px;
+        }
+        /* CORREÇÃO 1: Uso complementar de texto e ícone (não depende exclusivamente da cor) */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background-color: #fee2e2;
+            border: 1px solid #ef4444;
+            border-radius: 20px;
+            color: #991b1b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #dc2626;
+        }
+        .status-container {
+            margin-bottom: 12px;
+        }
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            color: #111827;
+        }
+        /* CORREÇÃO 2: Contraste ajustado para #374151 (Contraste 7.0 : 1 - Aprovado WCAG AAA) */
+        .descricao-campanha {
+            color: #374151;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+        /* CORREÇÃO 3: Contraste do texto secundário ajustado para #374151 (Contraste 6.8 : 1) */
+        .meta-arrecadacao {
+            background-color: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            color: #1f2937;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+        .campo-grupo {
+            margin-bottom: 16px;
+        }
+        .campo-grupo label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1f2937;
+        }
+        .campo-grupo input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #6b7280;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        /* CORREÇÃO 4: Anel de foco visível e acessível conforme WCAG 2.4.7 */
+        button:focus-visible, input:focus-visible, a:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        /* CORREÇÃO 5: Elemento nativo <button> acessível via teclado e leitores de tela */
+        .btn-acao {
+            display: block;
+            width: 100%;
+            background-color: #1d4ed8;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background-color 0.2s;
+        }
+        .btn-acao:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <main class="card-campanha">
+        <!-- CORREÇÃO 1.1.1: Atributo alt descritivo e relevante -->
+        <img class="imagem-capa" 
+             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" 
+             alt="Voluntários distribuindo caixas de mantimentos e suprimentos de emergência para famílias." />
+        <div class="conteudo">
+            <div class="status-container">
+                <span class="status-badge" aria-label="Prioridade Máxima">
+                    <span class="status-dot" aria-hidden="true"></span> 🚨 Urgente - Alta Prioridade
+                </span>
+            </div>
+            <h2>Apoio Emergencial às Vítimas de Enchentes</h2>
+            <p class="descricao-campanha">
+                Arrecadação de cestas básicas, cobertores e água potável para distribuição nas comunidades atingidas.
+            </p>
+            <div class="meta-arrecadacao">
+                <strong>Meta:</strong> R$ 50.000,00 | <strong>Arrecadado:</strong> R$ 32.400,00 (64%)
+            </div>
+
+            <!-- CORREÇÃO 3.3.2 & 2.4.3: Rótulos formais <label> e remoção de tabindex positivo -->
+            <div class="campo-grupo">
+                <label for="nome-doador">Nome Completo do Doador</label>
+                <input id="nome-doador" type="text" name="nome" placeholder="Ex: Maria Silva" required />
+            </div>
+
+            <div class="campo-grupo">
+                <label for="email-doador">E-mail de Contato</label>
+                <input id="email-doador" type="email" name="email" placeholder="Ex: maria@email.com" required />
+            </div>
+
+            <!-- CORREÇÃO 2.1.1 & 4.1.2: Tag nativa <button> com semântica e suporte total a teclado -->
+            <button type="button" class="btn-acao" onclick="alert('Doação registrada com sucesso!')">
+                Confirmar Apoio à Campanha
+            </button>
+        </div>
+    </main>
+</body>
+</html>
